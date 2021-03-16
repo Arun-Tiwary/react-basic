@@ -1,27 +1,29 @@
-import useState from "react";
-import { v4 as uuid } from "react";
-const InputToDo = ({ settodos }) => {
+import { useState } from "react";
+import { v4 as uuid } from "uuid";
+
+const InputToDo = ({ setTodos }) => {
   const [input, setInput] = useState("");
 
   function clickHandler() {
     const todoObject = {
       id: uuid(),
-      title: { input },
+      title: input,
       completed: false
     };
-    const todos = (todos) => [...todos, todoObject];
+    setTodos((todos) => [...todos, todoObject]);
+    setInput("");
   }
   return (
     <div>
-      <button>zxvxdc</button>
       <input
         type="text"
         value={input}
+        placeholder="type here"
         onChange={(event) => {
           setInput(event.target.value);
         }}
       />
-      <button onClick={() => clickHandler()}>asdfh</button>
+      <button onClick={() => clickHandler()}>Submit</button>
     </div>
   );
 };

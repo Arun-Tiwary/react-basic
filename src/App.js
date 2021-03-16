@@ -1,10 +1,14 @@
 import "./styles.css";
+import { useState } from "react";
+import InputToDo from "./components/inputtodo.js";
+import ListToDo from "./components/listtodo.js";
 
 export default function App() {
+  const [todos, setTodos] = useState("");
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <InputToDo todos={todos} />
+      <ListToDo />
     </div>
   );
 }
